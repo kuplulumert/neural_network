@@ -1,5 +1,2 @@
-streamlit
-numpy
-matplotlib
-plotly
-pandas
+pygame==2.5.2
+numpy==1.24.3

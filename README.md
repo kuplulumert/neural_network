@@ -1,112 +1,174 @@
-# Neural Network Visualizer 🧠
+# 🌊 Fluid Dynamics Adventure Game
 
-An interactive Streamlit application that demonstrates how a simple neural network works, including all the background processes like forward propagation, backpropagation, and weight updates.
+An educational open-world game that makes learning fluid dynamics fun and interactive! Explore a vibrant world, meet NPCs who teach you about fluid physics, and solve puzzles in fluid laboratories.
 
-## Features
+## 🎮 Game Features
 
-- **Interactive Neural Network Architecture**: Visualize the network structure with neurons and weighted connections
-- **Real-time Training**: Watch the network learn in real-time with adjustable parameters
-- **Multiple Datasets**: Test the network on different classification problems (XOR, Circle, Linear)
-- **Decision Boundary Visualization**: See how the network classifies different regions of the input space
-- **Gradient Visualization**: Observe how gradients flow through the network during backpropagation
-- **Weight Matrix Display**: Monitor how weights change during training
-- **Mathematical Explanations**: Detailed mathematical formulas explaining each step
+### Open World Exploration
+- **Pokemon-style world**: Explore a tile-based world with rivers, bridges, laboratories, and NPCs
+- **Beautiful environments**: Grass, water, trees, flowers, and sand tiles create a living world
+- **Dynamic camera**: Smooth camera following as you explore
 
-## Installation
+### Educational Content
+- **Learn Fluid Concepts**:
+  - Bernoulli's Principle
+  - Reynolds Number
+  - Buoyancy
+  - Viscosity
+  - Flow Rate
+  - Pressure
+  - Turbulence vs Laminar Flow
 
-1. Install the required dependencies:
+### Interactive NPCs
+- **Professor Bernoulli**: Teaches about pressure-velocity relationships
+- **Dr. Reynolds**: Explains turbulence and flow patterns
+- **Marina**: Ocean expert teaching about waves and buoyancy
+- **Apprentice Tim**: Learning about viscosity with you
+
+### Fluid Physics Laboratories
+- **Real-time fluid simulation** using simplified SPH (Smoothed Particle Hydrodynamics)
+- **Interactive puzzles** to test your understanding
+- **Visual feedback** showing flow patterns, pressure, and velocity
+- **Different lab types**:
+  - Flow laboratories
+  - Pressure chambers
+  - Buoyancy tanks
+  - Viscosity experiments
+
+### Advanced Fluid Simulation
+The game includes a sophisticated fluid physics engine featuring:
+- Lattice Boltzmann Method (simplified) for realistic fluid flow
+- Velocity and pressure field calculations
+- Different fluid types (water, oil, honey, air, mercury)
+- Obstacle interaction
+- Viscosity and density effects
+
+## 🕹️ How to Play
+
+### Controls
+- **WASD/Arrow Keys**: Move your character
+- **SPACE**: Talk to NPCs / Continue dialogue
+- **E**: Enter fluid laboratories
+- **ESC**: Exit lab / Quit game
+
+### Gameplay Loop
+1. **Explore** the world and find NPCs
+2. **Learn** fluid dynamics concepts through dialogue
+3. **Enter laboratories** to see concepts in action
+4. **Solve puzzles** to test your understanding
+5. **Earn knowledge points** to track your progress
+6. **Discover all concepts** to become a fluid dynamics master!
+
+## 🚀 Installation
+
+1. Install Python 3.8 or higher
+2. Install dependencies:
 ```bash
 pip install -r requirements.txt
 ```
 
-## Running the Application
-
-1. Start the Streamlit app:
+3. Run the game:
 ```bash
-streamlit run streamlit_app.py
+python main.py
 ```
 
-2. Open your browser and navigate to the URL shown in the terminal (typically `http://localhost:8501`)
+## 📚 Educational Value
 
-## How to Use
+This game teaches fundamental fluid dynamics concepts through:
 
-### 1. Configure the Network
-Use the sidebar to:
-- Select a dataset type (XOR, Circle, or Linear)
-- Adjust the number of hidden neurons
-- Set the learning rate
-- Configure training epochs and batch size
+### Visual Learning
+- See fluid particles interact in real-time
+- Observe how obstacles affect flow
+- Watch pressure and velocity changes
 
-### 2. Train the Network
-- Click **"Train Network"** to run full training
-- Click **"Train Single Step"** to see one training iteration
-- Watch the loss decrease over time in the loss chart
+### Interactive Experiments
+- Adjust parameters and see immediate results
+- Compare different fluid types
+- Understand cause and effect relationships
 
-### 3. Explore Visualizations
-- **Dataset Visualization**: See the training data points
-- **Network Architecture**: Observe neuron activations and connection weights
-  - Green connections = positive weights
-  - Red connections = negative weights
-  - Line thickness = weight magnitude
-- **Decision Boundary**: View how the network classifies the input space
-- **Loss Chart**: Monitor training progress
+### Progressive Difficulty
+- Start with basic concepts like flow
+- Progress to complex topics like turbulence
+- Each lab builds on previous knowledge
 
-### 4. Make Predictions
-- Enter custom input values
-- Click "Predict" to see the network's output
-- View confidence levels for classification
+## 🎯 Learning Objectives
 
-### 5. Understand the Math
-Expand the sections to see:
-- Mathematical formulas for forward and backward propagation
-- Current gradient values
-- Weight matrices
+By playing this game, you will understand:
 
-## Understanding the Network
+1. **Basic Fluid Properties**
+   - Density and its effects
+   - Viscosity and flow resistance
+   - Pressure distribution
 
-### Network Structure
-- **Input Layer**: 2 neurons (for 2D features)
-- **Hidden Layer**: Configurable (2-10 neurons)
-- **Output Layer**: 1 neuron (binary classification)
-- **Activation Function**: Sigmoid
+2. **Fluid Dynamics Principles**
+   - Conservation of mass (continuity equation)
+   - Conservation of momentum
+   - Energy conservation in fluids
 
-### Learning Process
-1. **Forward Pass**: Input flows through the network to produce an output
-2. **Loss Calculation**: Compare output with true label using Mean Squared Error
-3. **Backward Pass**: Calculate gradients using backpropagation
-4. **Weight Update**: Adjust weights using gradient descent
+3. **Real-World Applications**
+   - How pipes and channels affect flow
+   - Why objects float or sink
+   - How viscosity affects flow time
+   - Pressure-velocity relationships
 
-### Key Concepts Demonstrated
-- **Activation Functions**: How sigmoid transforms linear combinations
-- **Gradient Descent**: How weights are updated to minimize loss
-- **Backpropagation**: How errors propagate backward through the network
-- **Decision Boundaries**: How the network learns to separate classes
-- **Non-linear Classification**: How hidden layers enable complex decision boundaries
+4. **Advanced Concepts**
+   - Laminar vs turbulent flow
+   - Reynolds number significance
+   - Bernoulli's equation applications
 
-## Educational Value
+## 🔬 Technical Details
 
-This application is perfect for:
-- Students learning about neural networks
-- Educators teaching machine learning concepts
-- Anyone curious about how neural networks work internally
-- Visualizing the mathematics behind deep learning
+### Fluid Simulation Methods
+- **SPH (Smoothed Particle Hydrodynamics)**: For particle-based visualization
+- **Lattice Boltzmann Method**: For field-based simulation
+- **Finite Difference Methods**: For solving fluid equations
 
-## Tips for Learning
+### Physics Implemented
+- Navier-Stokes equations (simplified)
+- Pressure Poisson equation
+- Advection-diffusion
+- Boundary conditions
+- Force integration
 
-1. Start with the **Linear** dataset to see how the network solves simple problems
-2. Move to **XOR** to understand why hidden layers are necessary
-3. Try **Circle** to see complex non-linear decision boundaries
-4. Experiment with different numbers of hidden neurons
-5. Adjust the learning rate to see its effect on training speed and stability
-6. Use single-step training to observe individual weight updates
+## 🎨 Game Design Philosophy
 
-## Technical Details
+The game combines:
+- **Exploration**: Discovery-based learning
+- **Interaction**: Hands-on experiments
+- **Visualization**: See invisible physics concepts
+- **Gamification**: Points, progress tracking, achievements
+- **Narrative**: NPCs provide context and motivation
 
-The neural network implementation includes:
-- Vectorized operations using NumPy
-- Efficient batch processing
-- Gradient clipping to prevent overflow
-- Interactive visualizations with Plotly
-- Real-time updates with Streamlit
+## 🔄 Future Enhancements
 
-Enjoy exploring and learning about neural networks! 🚀
+Planned features:
+- More fluid types and properties
+- Complex multi-phase flow
+- Heat transfer and convection
+- Wave propagation
+- Aerodynamics mini-games
+- Multiplayer collaboration puzzles
+- Level editor for custom experiments
+
+## 🤝 Contributing
+
+This is an educational project. Contributions are welcome for:
+- New puzzles and challenges
+- Improved fluid simulation accuracy
+- Additional NPCs and storylines
+- Better visualizations
+- Performance optimizations
+
+## 📝 License
+
+This project is created for educational purposes. Feel free to use and modify for learning!
+
+## 🙏 Acknowledgments
+
+- Inspired by Pokemon-style RPGs for engaging gameplay
+- Fluid dynamics algorithms from computational physics literature
+- Educational game design principles for effective learning
+
+---
+
+**Start your fluid dynamics adventure today and discover the amazing physics of fluids!** 🌊🎮🔬
