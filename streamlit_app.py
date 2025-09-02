@@ -554,7 +554,7 @@ def main():
                     index=[f"Input {i+1}" for i in range(2)],
                     columns=[f"Hidden {i+1}" for i in range(hidden_neurons)]
                 )
-                st.dataframe(grad_df.style.background_gradient(cmap='RdBu', center=0))
+                st.dataframe(grad_df.style.background_gradient(cmap='RdBu'))
             
             with col_grad2:
                 st.write("**Hidden-Output Weight Gradients:**")
@@ -563,7 +563,7 @@ def main():
                     index=[f"Hidden {i+1}" for i in range(hidden_neurons)],
                     columns=["Output"]
                 )
-                st.dataframe(grad_df.style.background_gradient(cmap='RdBu', center=0))
+                st.dataframe(grad_df.style.background_gradient(cmap='RdBu'))
         else:
             st.info("Train the network to see gradient values")
     
@@ -578,7 +578,7 @@ def main():
                 index=[f"Input {i+1}" for i in range(2)],
                 columns=[f"Hidden {i+1}" for i in range(hidden_neurons)]
             )
-            st.dataframe(weights_df.style.background_gradient(cmap='RdBu', center=0))
+            st.dataframe(weights_df.style.background_gradient(cmap='RdBu'))
         
         with col_w2:
             st.write("**Hidden-Output Weights:**")
@@ -587,7 +587,7 @@ def main():
                 index=[f"Hidden {i+1}" for i in range(hidden_neurons)],
                 columns=["Output"]
             )
-            st.dataframe(weights_df.style.background_gradient(cmap='RdBu', center=0))
+            st.dataframe(weights_df.style.background_gradient(cmap='RdBu'))
 
 if __name__ == "__main__":
     main()
