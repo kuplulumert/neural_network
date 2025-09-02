@@ -3,6 +3,18 @@ from pokemon_game import *
 def main():
     st.title("🎮 Pokemon Adventure")
     
+    # Initialize session state if not exists
+    if 'game_state' not in st.session_state:
+        st.session_state.game_state = {
+            'player': None,
+            'world': World(),
+            'current_battle': None,
+            'game_mode': 'title',  # title, overworld, battle, menu
+            'last_direction': Direction.DOWN,
+            'steps': 0,
+            'play_time': 0
+        }
+    
     # Game state management
     game_state = st.session_state.game_state
     

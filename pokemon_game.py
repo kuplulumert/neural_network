@@ -473,18 +473,6 @@ class Battle:
             return True
         return False
 
-# Initialize session state
-if 'game_state' not in st.session_state:
-    st.session_state.game_state = {
-        'player': None,
-        'world': World(),
-        'current_battle': None,
-        'game_mode': 'title',  # title, overworld, battle, menu
-        'last_direction': Direction.DOWN,
-        'steps': 0,
-        'play_time': 0
-    }
-
 def render_world_view(player: Player, world: World):
     """Render the world around the player"""
     view = ""
