@@ -1,221 +1,232 @@
-# 🌊 Fluid Dynamics Adventure - Streamlit Edition
+# 🎮 Pokemon Adventure - Streamlit Edition
 
-An interactive web-based educational game that makes learning fluid dynamics fun! Built with Streamlit for easy deployment and accessibility.
+A Pokemon Leaf Green inspired MVP game built with Streamlit! Explore the world, catch Pokemon, battle wild creatures, and become a Pokemon Master - all in your web browser!
 
-## 🎮 Play Online
+## 🎯 Core Features (MVP)
 
-This game runs entirely in your web browser through Streamlit! No installation required if deployed on Streamlit Cloud.
+### ✅ Implemented Features
 
-## 🎯 Game Features
+1. **Tile-Based World Exploration**
+   - 20x15 tile world with various terrain types
+   - Grass, tall grass, water, trees, rocks, paths
+   - Pokemon Center, Poke Mart, and Gym buildings
+   - Movement with arrow buttons
 
-### 🗺️ World Map System
-- Explore different locations in the Fluid World
-- Each location focuses on different fluid concepts
-- Travel between locations to unlock new content
-- Visual map showing your current position
+2. **Starter Pokemon Selection**
+   - Choose between Bulbasaur, Charmander, or Squirtle
+   - Each with unique types and moves
 
-### 🔬 Interactive Laboratory
-- Real-time fluid flow simulations
-- Adjustable parameters (viscosity, density, flow speed)
-- Visual streamlines and velocity vectors
-- Obstacle interaction demonstrations
-- Multiple fluid types to experiment with
+3. **Wild Pokemon Encounters**
+   - 15% encounter rate in tall grass
+   - 8 different wild Pokemon species
+   - Random levels (2-5)
 
-### 📖 Learning Module
-- Comprehensive fluid dynamics concepts
-- Interactive formulas and calculations
-- Real-time examples with adjustable parameters
-- Concepts include:
-  - Bernoulli's Principle
-  - Reynolds Number
-  - Buoyancy (Archimedes' Principle)
-  - Viscosity
-  - Continuity Equation
+4. **Turn-Based Battle System**
+   - Type effectiveness system
+   - Damage calculation using simplified Pokemon formula
+   - Move PP system
+   - Battle log with action history
 
-### 🧩 Educational Puzzles
-- Interactive challenges for each concept
-- Real-time feedback on your solutions
-- Progress tracking and accuracy meters
-- Earn knowledge points for correct answers
-- Achievements system
+5. **Pokemon Catching Mechanics**
+   - Use Poke Balls to catch wild Pokemon
+   - Catch rate based on Pokemon's remaining HP
+   - Caught Pokemon added to party or PC storage
 
-### 📊 Analysis Tools
-- Pipe Flow Calculator
-- Buoyancy Force Calculator
-- Drag Force Calculator
-- Flow Rate Converter
-- Professional engineering calculations
+6. **Experience & Leveling**
+   - Gain EXP from defeating wild Pokemon
+   - Automatic stat increases on level up
+   - Level-based stat calculations
 
-## 🚀 How to Run Locally
+7. **Party Management**
+   - Up to 6 Pokemon in party
+   - View Pokemon stats, moves, and types
+   - PC storage for additional Pokemon
 
-1. **Install Python 3.8+**
+8. **Pokedex System**
+   - Track discovered and caught Pokemon
+   - View base stats of caught species
 
-2. **Install dependencies:**
+9. **Pokemon Center**
+   - Heal all Pokemon in party
+   - Restore move PP
+
+10. **Poke Mart**
+    - Buy items with in-game money
+    - Poke Balls, Potions, and other items
+
+## 🎮 How to Play
+
+### Starting the Game
+1. Enter your trainer name
+2. Choose your starter Pokemon
+3. Begin your adventure!
+
+### Controls
+- **Arrow Buttons**: Move around the world
+- **Action Button**: Interact with buildings
+- **Battle Commands**:
+  - Fight: Use Pokemon moves
+  - Bag: Use items (Poke Balls)
+  - Pokemon: Switch Pokemon (coming soon)
+  - Run: Escape from battle
+
+### Game Objectives
+- Explore the Kanto region
+- Catch wild Pokemon in tall grass
+- Build your team of 6 Pokemon
+- Level up your Pokemon through battles
+- Complete your Pokedex
+- Collect all 8 gym badges (coming soon)
+
+## 🚀 Installation & Running
+
+### Local Setup
+1. Install Python 3.8+
+2. Install dependencies:
 ```bash
-pip install -r requirements.txt
+pip install streamlit
 ```
 
-3. **Run the app:**
+3. Run the game:
 ```bash
 streamlit run streamlit_app.py
 ```
 
-4. **Open in browser:**
-Navigate to `http://localhost:8501`
+4. Open browser to `http://localhost:8501`
 
-## 🌐 Deploy on Streamlit Cloud
+### Deploy on Streamlit Cloud
+1. Push to GitHub
+2. Connect to Streamlit Cloud
+3. Deploy with one click!
 
-1. Push this repository to GitHub
-2. Go to [share.streamlit.io](https://share.streamlit.io)
-3. Connect your GitHub repository
-4. Deploy with one click!
+## 📊 Game Data
 
-## 🎮 How to Play
+### Available Pokemon
+- **Starters**: Bulbasaur, Charmander, Squirtle
+- **Wild Pokemon**: Pikachu, Pidgey, Rattata, Caterpie, Oddish
 
-### Getting Started
-1. Enter your name to begin the adventure
-2. Start at the Central Hub
-3. Explore different locations
-4. Learn concepts and solve puzzles
+### Type Chart
+The game includes type effectiveness:
+- Fire > Grass
+- Water > Fire  
+- Grass > Water
+- Electric > Water
+- And more type matchups!
 
-### Game Progression
-- **Knowledge Points**: Earn points by learning concepts and solving puzzles
-- **Level System**: Progress through levels as you gain knowledge
-- **Achievements**: Unlock special achievements for completing challenges
-- **Concept Discovery**: Track which fluid dynamics concepts you've mastered
+### Items
+- **Poke Ball**: Catch wild Pokemon
+- **Potion**: Restore 20 HP
+- **Super Potion**: Restore 50 HP
+- **Antidote**: Cure poison
 
-### Locations
-- **Central Hub**: Starting point and main meeting area
-- **Flowing River**: Study flow patterns and velocity
-- **Pressure Lake**: Explore pressure at different depths
-- **Fluid Lab**: Advanced experiments and simulations
-- **Pipe Factory**: Learn about Reynolds number and pipe flow
-- **Buoyancy Ocean**: Discover Archimedes' principle
+## 🎨 Game Design
 
-## 📚 Educational Content
+### World Generation
+- Procedurally generated world with:
+  - Central crossroads with paths
+  - Pokemon Center at the center
+  - Tall grass patches for encounters
+  - Natural obstacles (trees, rocks, water)
+  - Buildings and landmarks
 
-### Core Concepts Taught
+### Battle System
+- Turn-based combat
+- Speed determines turn order
+- Type effectiveness multipliers
+- Critical hit chances
+- Status effects (coming soon)
 
-1. **Bernoulli's Principle**
-   - Relationship between pressure and velocity
-   - Energy conservation in fluids
-   - Real-world applications
+### Progression System
+- Level 1-100 progression
+- Experience points from battles
+- Stat growth on level up
+- Move learning (coming soon)
+- Evolution system (coming soon)
 
-2. **Reynolds Number**
-   - Predicting flow patterns
-   - Laminar vs turbulent flow
-   - Critical values and transitions
+## 🔧 Technical Details
 
-3. **Buoyancy**
-   - Archimedes' principle
-   - Floating and sinking objects
-   - Density relationships
+### Architecture
+- **Frontend**: Streamlit web interface
+- **Game Logic**: Python classes and dataclasses
+- **State Management**: Streamlit session state
+- **Data**: In-memory game state
 
-4. **Viscosity**
-   - Fluid resistance to flow
-   - Different fluid behaviors
-   - Temperature effects
+### Key Components
+- `Pokemon`: Dataclass for Pokemon stats and moves
+- `Player`: Manages trainer data and inventory
+- `World`: Generates and manages the game map
+- `Battle`: Handles combat logic
+- `Move`: Defines attack properties
 
-5. **Continuity Equation**
-   - Mass conservation
-   - Flow rate calculations
-   - Pipe diameter effects
+## 🚧 Planned Features
 
-### Interactive Simulations
-- **2D Fluid Flow**: Visualize velocity fields and streamlines
-- **Obstacle Interaction**: See how objects affect flow
-- **Parameter Adjustment**: Change viscosity, density, and speed
-- **Real-time Calculations**: Instant feedback on changes
+### Coming Soon
+- [ ] Pokemon switching in battle
+- [ ] More Pokemon species (151 total)
+- [ ] Evolution system
+- [ ] Gym battles and badges
+- [ ] Trainer battles
+- [ ] Save/Load game
+- [ ] Sound effects
+- [ ] Animations
+- [ ] Trading system
+- [ ] Breeding system
+- [ ] Berry farming
+- [ ] Day/night cycle
+- [ ] Weather effects
 
-## 🏆 Game Mechanics
+## 🎯 MVP Checklist
 
-### Points System
-- Learn a concept: 10-15 points
-- Solve a puzzle: 20 points
-- Complete achievements: Bonus points
-- Level up every 50 points
+### Core Gameplay ✅
+- [x] World exploration
+- [x] Pokemon encounters
+- [x] Battle system
+- [x] Catching mechanics
+- [x] Leveling system
+- [x] Type effectiveness
+- [x] Party management
+- [x] Pokedex
+- [x] Pokemon Center healing
+- [x] Shop system
 
-### Puzzle Types
-- **Bernoulli Challenge**: Adjust pipe diameter for target pressure
-- **Reynolds Quest**: Find the right velocity for laminar flow
-- **Buoyancy Balance**: Make objects float at specific levels
-- **Flow Rate Problems**: Match target flow rates
+### Pokemon Features ✅
+- [x] 8 Pokemon species
+- [x] 4 types implemented
+- [x] 2 moves per Pokemon
+- [x] Stats system
+- [x] Experience/leveling
 
-### Achievement Examples
-- "First Concept Learned"
-- "Puzzle Master" (Solve 5 puzzles)
-- "Fluid Expert" (Learn all concepts)
-- "Explorer" (Visit all locations)
+### UI/UX ✅
+- [x] Game Boy color scheme
+- [x] Tile-based world view
+- [x] Battle interface
+- [x] Trainer card
+- [x] Inventory display
+- [x] Pokedex viewer
 
-## 🔧 Technical Features
+## 🎮 Tips for Players
 
-### Streamlit Components Used
-- Interactive widgets (sliders, buttons, selectboxes)
-- Plotly for advanced visualizations
-- Session state for game persistence
-- Multi-tab interface
-- Responsive layout with columns
-- Progress bars and metrics
+1. **Save your Poke Balls** - Don't waste them on full HP Pokemon
+2. **Explore tall grass** - Different areas may have different Pokemon
+3. **Type matchups matter** - Use super effective moves for more damage
+4. **Heal regularly** - Visit Pokemon Centers to keep your team healthy
+5. **Level up** - Grind in tall grass to strengthen your team
 
-### Fluid Simulation
-- Simplified Navier-Stokes solver
-- Advection-diffusion implementation
-- Streamline generation
-- Pressure field calculation
-- Velocity vector fields
+## 🤝 Contributing
 
-## 🎨 Visual Features
+This is an MVP implementation. Contributions welcome for:
+- Adding more Pokemon species
+- Implementing evolution
+- Creating gym leaders
+- Adding new moves
+- Improving battle AI
+- Adding sound/music
+- Creating sprites
 
-- **Interactive Plots**: Zoom, pan, and hover for details
-- **Color-coded Flow**: Velocity magnitude visualization
-- **Streamlines**: Flow path visualization
-- **Vector Fields**: Direction and magnitude arrows
-- **World Map**: Visual navigation system
+## 📝 License
 
-## 📈 Learning Outcomes
-
-After playing this game, students will:
-- Understand fundamental fluid dynamics principles
-- Visualize invisible fluid phenomena
-- Apply equations to solve real problems
-- Recognize fluid behavior patterns
-- Connect theory to practical applications
-
-## 🔄 Future Enhancements
-
-- 3D fluid simulations
-- Multiplayer challenges
-- More complex puzzles
-- Additional fluid types
-- Heat transfer modules
-- Compressible flow
-- Custom experiment designer
-- Leaderboard system
-
-## 🤝 Educational Use
-
-Perfect for:
-- High school physics students
-- University fluid dynamics courses
-- Self-learners interested in physics
-- Teachers looking for interactive demos
-- Anyone curious about how fluids work
-
-## 📝 Tips for Success
-
-1. **Start with the Learn tab** to understand concepts
-2. **Experiment in the Laboratory** to see concepts in action
-3. **Apply knowledge in Puzzles** to test understanding
-4. **Use Analysis Tools** for practical calculations
-5. **Explore all locations** for complete learning
-
-## 🙏 Credits
-
-- Built with Streamlit for web deployment
-- Plotly for interactive visualizations
-- NumPy for numerical computations
-- Educational game design principles
+Fan-made educational project inspired by Pokemon Leaf Green.
 
 ---
 
-**Start your fluid dynamics adventure today! Learn physics through play!** 🌊🎮📚
+**Gotta Catch 'Em All!** 🎮✨
