@@ -2,7 +2,6 @@ import streamlit as st
 import numpy as np
 import matplotlib.pyplot as plt
 import plotly.graph_objects as go
-from plotly.subplots import make_subplots
 import pandas as pd
 from typing import List, Tuple
 import time
@@ -333,6 +332,11 @@ def plot_decision_boundary(nn: SimpleNeuralNetwork, X: np.ndarray, y: np.ndarray
 
 # Streamlit App
 def main():
+    # Clear cache on reload to avoid stale module issues
+    if 'initialized' not in st.session_state:
+        st.session_state.initialized = True
+        st.cache_data.clear()
+    
     st.title("🧠 Interactive Neural Network Visualizer")
     st.markdown("""
     This app demonstrates how a simple neural network works, including:
@@ -554,7 +558,7 @@ def main():
                     index=[f"Input {i+1}" for i in range(2)],
                     columns=[f"Hidden {i+1}" for i in range(hidden_neurons)]
                 )
-                st.dataframe(grad_df.style.background_gradient(cmap='RdBu'))
+                st.dataframe(grad_df, use_container_width=True)
             
             with col_grad2:
                 st.write("**Hidden-Output Weight Gradients:**")
@@ -563,7 +567,7 @@ def main():
                     index=[f"Hidden {i+1}" for i in range(hidden_neurons)],
                     columns=["Output"]
                 )
-                st.dataframe(grad_df.style.background_gradient(cmap='RdBu'))
+                st.dataframe(grad_df, use_container_width=True)
         else:
             st.info("Train the network to see gradient values")
     
@@ -578,7 +582,7 @@ def main():
                 index=[f"Input {i+1}" for i in range(2)],
                 columns=[f"Hidden {i+1}" for i in range(hidden_neurons)]
             )
-            st.dataframe(weights_df.style.background_gradient(cmap='RdBu'))
+            st.dataframe(weights_df, use_container_width=True)
         
         with col_w2:
             st.write("**Hidden-Output Weights:**")
@@ -587,7 +591,7 @@ def main():
                 index=[f"Hidden {i+1}" for i in range(hidden_neurons)],
                 columns=["Output"]
             )
-            st.dataframe(weights_df.style.background_gradient(cmap='RdBu'))
+            st.dataframe(weights_df, use_container_width=True)
 
 if __name__ == "__main__":
     main()
