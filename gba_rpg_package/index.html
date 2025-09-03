@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tiny GBA-style RPG</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="wrap">
+    <header class="ui">
+      <h1>🎮 Tiny GBA-style RPG</h1>
+      <p>Move: <kbd>Arrows</kbd>/<kbd>WASD</kbd> • Interact: <kbd>Z</kbd>/<kbd>Enter</kbd> • Pause: <kbd>P</kbd> • Reset: <kbd>R</kbd></p>
+      <p class="hint">This renders at native 240×160 and upscales ×3 with authentic GBA post-effects.</p>
+    </header>
+
+    <!-- Visible canvas (scaled). Game renders to an offscreen 240×160 backbuffer. -->
+    <canvas id="game" width="720" height="480" aria-label="Game canvas" role="img"></canvas>
+
+    <footer class="ui">
+      <small>Vanilla JS + Canvas. Drop your own PNGs in <code>assets/</code> (tileset.png, player.png).</small>
+    </footer>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
