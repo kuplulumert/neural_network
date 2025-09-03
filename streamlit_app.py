@@ -1,135 +1,148 @@
 import streamlit as st
 import streamlit.components.v1 as components
-import json
-import random
 
-# Page configuration
+# Page configuration  
 st.set_page_config(
-    page_title="Pokemon Game Boy Adventure",
+    page_title="Pokemon GBA SP",
     page_icon="🎮",
     layout="wide",
     initial_sidebar_state="collapsed"
 )
 
-# Game Boy Color Palette
-GB_COLORS = {
-    'darkest': '#0f380f',
-    'dark': '#306230', 
-    'light': '#8bac0f',
-    'lightest': '#9bbc0f'
-}
-
-# Initialize session state
-if 'game_data' not in st.session_state:
-    st.session_state.game_data = {
-        'player_x': 320,
-        'player_y': 240,
-        'player_direction': 'down',
-        'player_moving': False,
-        'player_frame': 0,
-        'wild_pokemon': [],
-        'in_battle': False,
-        'in_grass': False,
-        'steps': 0,
-        'player_name': 'Red',
-        'badges': 0,
-        'money': 3000,
-        'pokemon_party': [],
-        'map_offset_x': 0,
-        'map_offset_y': 0
+# Custom CSS for page styling
+st.markdown("""
+<style>
+    .stApp {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     }
+    .main {
+        padding-top: 2rem;
+    }
+    h1, h2, h3 {
+        color: white !important;
+        text-align: center;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    .stTabs [data-baseweb="tab-list"] {
+        gap: 24px;
+        background-color: rgba(255,255,255,0.1);
+        padding: 10px;
+        border-radius: 10px;
+    }
+    .stTabs [data-baseweb="tab"] {
+        color: white;
+        font-weight: bold;
+    }
+</style>
+""", unsafe_allow_html=True)
 
-# HTML5 Canvas Game Component
-def create_game_canvas():
-    # Read the HTML and JS files
-    with open('game_canvas.html', 'r') as f:
-        html_content = f.read()
-    with open('game_engine.js', 'r') as f:
-        js_content = f.read()
-    
-    # Embed JS directly in HTML
-    game_html = html_content.replace('<script src="game_engine.js"></script>', 
-                                     f'<script>{js_content}</script>')
-    return game_html
-
-# Streamlit App
 def main():
-    st.markdown("""
-    <style>
-        .stApp {
-            background-color: #8bac0f;
-        }
-        h1, h2, h3 {
-            color: #0f380f;
-            font-family: monospace;
-        }
-    </style>
-    """, unsafe_allow_html=True)
-    
-    st.title("🎮 Pokemon Game Boy Adventure")
+    st.title("🎮 Nintendo Game Boy Advance SP")
+    st.markdown("<h3 style='text-align: center; color: rgba(255,255,255,0.8);'>Pokemon Ruby/Sapphire/Emerald Experience</h3>", unsafe_allow_html=True)
     
     # Create tabs
-    tab1, tab2, tab3 = st.tabs(["🎮 Play Game", "📖 Instructions", "📊 Stats"])
+    tab1, tab2, tab3 = st.tabs(["🎮 Play Game", "📖 Game Guide", "🏆 Features"])
     
     with tab1:
-        # Embed the game
-        game_html = create_game_canvas()
-        components.html(game_html, height=700, scrolling=False)
+        # Center the game
+        col1, col2, col3 = st.columns([1, 3, 1])
+        with col2:
+            # Load and display the GBA game
+            with open('gba_game.html', 'r') as f:
+                game_html = f.read()
+            
+            components.html(game_html, height=800, scrolling=False)
     
     with tab2:
-        st.markdown("""
-        ## 🎮 How to Play
-        
-        ### Controls:
-        - **Arrow Keys / WASD**: Move your character
-        - **A Button / Space / Enter**: Interact with NPCs and buildings
-        - **B Button**: Cancel (coming soon)
-        - **START / Escape**: Open menu
-        
-        ### Gameplay:
-        1. **Explore the World**: Walk around using the D-pad or arrow keys
-        2. **Tall Grass**: Wild Pokemon appear in tall grass (dark green areas)
-        3. **Buildings**: 
-           - 🏥 Pokemon Center: Heal your Pokemon
-           - 🏪 Poke Mart: Buy items
-           - 🏠 Houses: Talk to residents
-        4. **NPCs**: Approach and press A to talk
-        5. **Paths**: Brown paths connect different areas
-        
-        ### Features:
-        - Authentic Game Boy Color graphics
-        - Smooth pixel-perfect movement
-        - Collision detection with buildings, trees, and water
-        - Random Pokemon encounters in grass
-        - Interactive NPCs with dialogue
-        - Animated sprites and environment
-        
-        ### Tips:
-        - Stay on paths to avoid wild Pokemon
-        - Visit Pokemon Centers to heal
-        - Talk to everyone for hints
-        - Save your game often (START menu)
-        """)
-    
-    with tab3:
         col1, col2 = st.columns(2)
         
         with col1:
-            st.markdown("### 🏆 Trainer Stats")
-            st.metric("Steps Taken", st.session_state.game_data['steps'])
-            st.metric("Badges", f"{st.session_state.game_data['badges']}/8")
-            st.metric("Money", f"₽{st.session_state.game_data['money']}")
+            st.markdown("""
+            ### 🎮 Controls
+            
+            **Game Boy Advance SP Buttons:**
+            - **D-Pad**: Move your character
+            - **A Button**: Confirm / Interact
+            - **B Button**: Cancel / Close menu
+            - **START**: Open/Close game menu
+            - **SELECT**: Additional options
+            - **L/R**: Shoulder buttons (coming soon)
+            
+            **Keyboard Controls:**
+            - **Arrow Keys / WASD**: Movement
+            - **Enter / Space**: A button (confirm)
+            - **Escape**: Start button (menu)
+            - **Shift**: B button (cancel)
+            """)
         
         with col2:
-            st.markdown("### 🎒 Inventory")
-            st.write("- Poke Balls: 5")
-            st.write("- Potions: 3")
-            st.write("- Rare Candy: 1")
-            st.write("- Town Map: 1")
+            st.markdown("""
+            ### 🗺️ Game World
+            
+            **Terrain Types:**
+            - 🌿 **Grass**: Normal walking area
+            - 🌾 **Tall Grass**: Wild Pokemon appear (2% chance)
+            - 🛤️ **Path**: Safe from Pokemon
+            - 🌳 **Trees**: Cannot pass through
+            - 💧 **Water**: Need Surf to cross
+            - 🏠 **Buildings**: Enter for services
+            
+            **Tips:**
+            - Save your game often using START menu
+            - Tall grass has wild Pokemon encounters
+            - Visit Pokemon Centers to heal
+            """)
+    
+    with tab3:
+        st.markdown("""
+        ### 🌟 Authentic GBA SP Features
+        
+        This is an authentic recreation of the Nintendo Game Boy Advance SP experience:
+        
+        #### ✨ Visual Features
+        - **240x160 pixel** authentic GBA resolution
+        - **32-bit color** graphics like the real GBA
+        - **Pixel-perfect** sprite rendering
+        - **Authentic GBA SP silver shell** design
+        - **Working power LED** with pulse animation
+        - **Speaker grills** on both sides
+        
+        #### 🎮 Gameplay Features
+        - **Pokemon Ruby/Sapphire/Emerald** style graphics
+        - **Smooth character movement** with animations
+        - **Tile-based world** (16x16 pixel tiles)
+        - **Random Pokemon encounters** in tall grass
+        - **Battle system** with menu interface
+        - **Camera following** with boundary limits
+        - **Collision detection** for obstacles
+        
+        #### 🎨 Technical Specs
+        - **Authentic color palette** from Pokemon GBA games
+        - **Proper sprite layering** system
+        - **60 FPS** smooth gameplay
+        - **Touch-friendly** controls for mobile
+        - **Responsive D-Pad** with visual feedback
+        
+        #### 🏆 Pokemon Features
+        - Character sprite based on Pokemon trainer
+        - Walking animations with leg movement
+        - Direction facing indicators
+        - Shadow under character
+        - Menu system like real Pokemon games
+        - Route/location display
+        - Battle encounter system
+        
+        This is a faithful recreation of playing Pokemon on a real Game Boy Advance SP!
+        """)
     
     # Footer
     st.markdown("---")
-    st.markdown("*A faithful recreation of the Pokemon Game Boy experience in your browser!*")
+    st.markdown("""
+    <div style='text-align: center; color: rgba(255,255,255,0.8);'>
+        <p>🎮 A faithful recreation of the Nintendo Game Boy Advance SP experience</p>
+        <p style='font-size: 12px;'>Nintendo, Game Boy Advance, and Pokemon are trademarks of Nintendo Co., Ltd.</p>
+    </div>
+    """, unsafe_allow_html=True)
 
 if __name__ == "__main__":
     main()
