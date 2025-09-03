@@ -3,24 +3,23 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Tiny Web RPG</title>
+  <title>Tiny GBA-style RPG</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <main class="wrap">
     <header class="ui">
-      <h1>Tiny Web RPG</h1>
-      <p>Move: <kbd>Arrows</kbd>/<kbd>WASD</kbd> • Pause: <kbd>P</kbd> • Reset: <kbd>R</kbd></p>
-      <p class="hint">Your position auto-saves in this browser.</p>
+      <h1>Tiny GBA-style RPG</h1>
+      <p>Move: <kbd>Arrows</kbd>/<kbd>WASD</kbd> • Interact: <kbd>Z</kbd>/<kbd>Enter</kbd> • Pause: <kbd>P</kbd> • Reset: <kbd>R</kbd></p>
+      <p class="hint">Swap your own pixel art into <code>assets/</code> any time.</p>
     </header>
 
     <canvas id="game" width="320" height="240" aria-label="Game canvas" role="img"></canvas>
 
     <footer class="ui">
-      <small>Built with vanilla JS. Deploy on GitHub Pages by enabling "Deploy from branch".</small>
+      <small>Vanilla JS + Canvas. Ready for GitHub Pages.</small>
     </footer>
   </main>
-
   <script src="script.js"></script>
 </body>
 </html>

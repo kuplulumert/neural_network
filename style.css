@@ -9,17 +9,12 @@
 html, body { height: 100%; }
 body {
   margin: 0;
-  font-family: ui-sans-serif, system-ui, Segoe UI, Roboto, Helvetica, Arial, Apple Color Emoji, Segoe UI Emoji;
+  font-family: ui-sans-serif, system-ui, Segoe UI, Roboto, Helvetica, Arial;
   color: var(--fg);
   background: radial-gradient(1200px 600px at 50% -10%, #20232a 0%, var(--bg) 60%);
 }
 
-.wrap {
-  max-width: 760px;
-  margin: 24px auto;
-  padding: 16px;
-}
-
+.wrap { max-width: 760px; margin: 24px auto; padding: 16px; }
 .ui {
   background: var(--panel);
   border: 1px solid #2a2f3a;
@@ -27,15 +22,13 @@ body {
   padding: 12px 16px;
   box-shadow: 0 8px 24px rgba(0,0,0,.35);
 }
-
 h1 { margin: 0 0 4px; font-size: 20px; }
 p { margin: 4px 0; color: var(--fg); }
 .hint { color: var(--muted); }
 
 canvas#game {
   display: block;
-  width: 640px;   /* CSS upscaling for crisp pixels */
-  height: 480px;
+  width: 640px; height: 480px; /* 2x upscale */
   margin: 16px auto;
   image-rendering: pixelated;
   image-rendering: crisp-edges;

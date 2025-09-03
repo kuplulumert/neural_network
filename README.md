@@ -1,20 +1,25 @@
-# Tiny Web RPG (Vanilla JS)
+# Tiny GBA-style RPG (Vanilla JS)
 
-A minimal tile-based RPG scaffold built with HTML, CSS, and JavaScript (Canvas).  
-Move with **Arrows/WASD**, **P** to pause, **R** to reset saved position.
+A miniature tile-based RPG scaffold with:
+- 16×16 tileset, animated sprites, camera follow
+- Interactable NPC and dialogue box with typewriter effect
+- Collision and autosave (localStorage)
 
-## Local Run
-Simply open `index.html` in a modern browser.
+## Run Locally
+Open `index.html` in a modern browser.
 
-## Deploy to GitHub Pages
-1. Push this repo to GitHub.
-2. Go to **Settings → Pages**.
-3. Under **Build and deployment**:  
-   - Source: **Deploy from branch**  
+## Deploy on GitHub Pages
+1. Push to GitHub.
+2. **Settings → Pages → Build and deployment**
+   - Source: **Deploy from branch**
    - Branch: `main` → `/ (root)`
-4. Visit: `https://<your-username>.github.io/<repo-name>/`
+3. Visit `https://<username>.github.io/<repo>/`.
 
-## Extend
-- Edit `script.js` to replace the demo map with your own.
-- Add NPCs, encounters, and a battle state machine.
-- Save more game state in `localStorage` or migrate to IndexedDB.
+## Art / Assets
+Place your own pixel art in `assets/`:
+- `tileset.png`: grid of 16×16 tiles (any cols/rows).
+- `player.png`: 4 rows (Down, Left, Right, Up) × 3 columns (walk frames), each frame **16×24**.
+
+If missing, the game auto-generates a procedural tileset and sprite so it still works.
+
+> Use original artwork or properly licensed assets. Do not use Nintendo/Pokémon copyrighted art.
