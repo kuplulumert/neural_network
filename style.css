@@ -100,8 +100,8 @@ p {
 
 .gba-screen-container {
   position: relative;
-  width: 480px; /* 240 * 2 */
-  height: 320px; /* 160 * 2 */
+  width: 720px; /* 240 * 3 */
+  height: 480px; /* 160 * 3 */
   margin: 0 auto 20px;
   background: #000;
   border: 8px solid var(--gba-screen-border);
@@ -116,8 +116,8 @@ p {
 
 canvas#game {
   display: block;
-  width: 480px; /* 2x scale for visibility */
-  height: 320px;
+  width: 720px; /* 3x integer scale */
+  height: 480px;
   image-rendering: pixelated;
   image-rendering: crisp-edges;
   image-rendering: -moz-crisp-edges;
@@ -136,16 +136,16 @@ footer small {
   letter-spacing: 0.5px;
 }
 
-/* Mobile responsive */
-@media (max-width: 520px) {
+/* Mobile responsive - maintain integer scaling */
+@media (max-width: 760px) {
   .gba-screen-container {
-    width: 360px;
-    height: 240px;
+    width: 480px; /* 2x scale */
+    height: 320px;
   }
   
   canvas#game {
-    width: 360px;
-    height: 240px;
+    width: 480px;
+    height: 320px;
   }
   
   .controls {
@@ -158,14 +158,14 @@ footer small {
   }
 }
 
-@media (max-width: 380px) {
+@media (max-width: 500px) {
   .gba-screen-container {
-    width: 300px;
-    height: 200px;
+    width: 240px; /* 1x scale */
+    height: 160px;
   }
   
   canvas#game {
-    width: 300px;
-    height: 200px;
+    width: 240px;
+    height: 160px;
   }
 }
