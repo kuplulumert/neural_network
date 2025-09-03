@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>GBA-Style RPG (Pokémon Emerald Graphics)</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="wrap">
+    <header class="ui emerald-style">
+      <h1>🎮 GBA-Style RPG (Emerald Graphics)</h1>
+      <p class="controls">
+        Hareket: <kbd>↑</kbd><kbd>↓</kbd><kbd>←</kbd><kbd>→</kbd> veya <kbd>WASD</kbd> • 
+        Etkileşim: <kbd>Z</kbd>/<kbd>Enter</kbd> • 
+        Duraklat: <kbd>P</kbd> • 
+        Sıfırla: <kbd>R</kbd>
+      </p>
+      <p class="hint">240×160 native GBA çözünürlük + Emerald-kalite grafikler + 15-bit renk derinliği</p>
+    </header>
+    
+    <div class="screen-container">
+      <canvas id="game" width="960" height="640" aria-label="Oyun Ekranı" role="img"></canvas>
+    </div>
+    
+    <footer class="ui emerald-style">
+      <small>Vanilla JS + Canvas • Prosedürel Emerald-tarzı piksel sanatı • Kendi PNG'lerini <code>assets/</code> klasörüne ekleyebilirsin</small>
+    </footer>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
