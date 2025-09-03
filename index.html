@@ -3,7 +3,291 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Game Boy Advance SP - Pokémon Style RPG</title>
+  <title>Premium GBA-Style RPG Collection</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #667eea 75%, #764ba2 100%);
+      background-size: 400% 400%;
+      animation: gradient 15s ease infinite;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      padding: 20px;
+    }
+    
+    @keyframes gradient {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    
+    .container {
+      max-width: 1200px;
+      width: 100%;
+      text-align: center;
+    }
+    
+    h1 {
+      font-size: 3em;
+      margin-bottom: 20px;
+      text-shadow: 0 4px 6px rgba(0,0,0,0.3);
+      background: linear-gradient(135deg, #FFD700, #FFA500, #FF6B6B);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: shimmer 3s ease infinite;
+    }
+    
+    @keyframes shimmer {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.8; }
+    }
+    
+    .subtitle {
+      font-size: 1.3em;
+      margin-bottom: 40px;
+      opacity: 0.95;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    }
+    
+    .game-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin-bottom: 40px;
+    }
+    
+    .game-card {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      padding: 30px;
+      border: 2px solid rgba(255, 255, 255, 0.2);
+      transition: all 0.3s ease;
+      cursor: pointer;
+      text-decoration: none;
+      color: white;
+      display: block;
+    }
+    
+    .game-card:hover {
+      transform: translateY(-10px) scale(1.02);
+      background: rgba(255, 255, 255, 0.15);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+      border-color: rgba(255, 215, 0, 0.5);
+    }
+    
+    .game-icon {
+      font-size: 4em;
+      margin-bottom: 20px;
+      filter: drop-shadow(0 4px 6px rgba(0,0,0,0.3));
+    }
+    
+    .game-title {
+      font-size: 1.5em;
+      margin-bottom: 10px;
+      font-weight: bold;
+      color: #FFD700;
+    }
+    
+    .game-description {
+      font-size: 0.95em;
+      line-height: 1.5;
+      opacity: 0.9;
+      margin-bottom: 20px;
+    }
+    
+    .features {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      margin-top: 15px;
+    }
+    
+    .feature-tag {
+      background: rgba(255, 255, 255, 0.2);
+      padding: 5px 12px;
+      border-radius: 20px;
+      font-size: 0.85em;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+    
+    .play-button {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 12px 30px;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      border-radius: 30px;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    }
+    
+    .play-button:hover {
+      background: linear-gradient(135deg, #764ba2, #f093fb);
+      transform: scale(1.05);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+    }
+    
+    .info-section {
+      background: rgba(0, 0, 0, 0.3);
+      border-radius: 20px;
+      padding: 30px;
+      margin-top: 40px;
+      backdrop-filter: blur(5px);
+    }
+    
+    .controls {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+      margin-top: 20px;
+    }
+    
+    .control-item {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 15px;
+      border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    
+    kbd {
+      background: rgba(255, 255, 255, 0.2);
+      padding: 3px 8px;
+      border-radius: 5px;
+      font-family: monospace;
+      margin: 0 3px;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      display: inline-block;
+    }
+    
+    .footer {
+      margin-top: 40px;
+      padding: 20px;
+      opacity: 0.8;
+      font-size: 0.9em;
+    }
+    
+    @media (max-width: 768px) {
+      h1 { font-size: 2em; }
+      .game-grid { grid-template-columns: 1fr; }
+      .game-icon { font-size: 3em; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🎮 Premium GBA-Style RPG Collection 🎮</h1>
+    <p class="subtitle">Choose your adventure - Authentic Game Boy Advance experiences in your browser!</p>
+    
+    <div class="game-grid">
+      <!-- Premium 2D RPG -->
+      <a href="premium.html" class="game-card">
+        <div class="game-icon">⚔️</div>
+        <div class="game-title">Premium 2D RPG</div>
+        <div class="game-description">
+          Experience the ultimate 2D RPG with dynamic lighting, particle effects, day/night cycles, 
+          and professional-grade graphics. Features smooth physics, advanced dialogue system, and immersive gameplay.
+        </div>
+        <div class="features">
+          <span class="feature-tag">Dynamic Lighting</span>
+          <span class="feature-tag">Particles</span>
+          <span class="feature-tag">Day/Night</span>
+          <span class="feature-tag">Premium Graphics</span>
+        </div>
+        <div class="play-button">Play Premium Version</div>
+      </a>
+      
+      <!-- GBA Authentic -->
+      <a href="gba-game.html" class="game-card" onclick="loadGBAGame(); return false;">
+        <div class="game-icon">🎯</div>
+        <div class="game-title">GBA SP Authentic</div>
+        <div class="game-description">
+          True-to-hardware Game Boy Advance SP experience with native 240×160 resolution, 
+          BGR555 color quantization, LCD effects, and authentic sprite rendering.
+        </div>
+        <div class="features">
+          <span class="feature-tag">240×160 Native</span>
+          <span class="feature-tag">15-bit Color</span>
+          <span class="feature-tag">LCD Effects</span>
+          <span class="feature-tag">Pixel Perfect</span>
+        </div>
+        <div class="play-button">Play GBA Version</div>
+      </a>
+      
+      <!-- Emerald Style -->
+      <a href="emerald.html" class="game-card" onclick="loadEmeraldGame(); return false;">
+        <div class="game-icon">💎</div>
+        <div class="game-title">Pokémon Emerald Style</div>
+        <div class="game-description">
+          Inspired by Pokémon Emerald with rich procedural graphics, animated water and grass, 
+          overlap layers, and professional sprite animations with shadows.
+        </div>
+        <div class="features">
+          <span class="feature-tag">Emerald Graphics</span>
+          <span class="feature-tag">Animations</span>
+          <span class="feature-tag">Overlap Layers</span>
+          <span class="feature-tag">9-Slice UI</span>
+        </div>
+        <div class="play-button">Play Emerald Style</div>
+      </a>
+    </div>
+    
+    <div class="info-section">
+      <h2>🎮 Universal Controls</h2>
+      <div class="controls">
+        <div class="control-item">
+          <strong>Movement:</strong><br>
+          <kbd>↑</kbd> <kbd>↓</kbd> <kbd>←</kbd> <kbd>→</kbd> or <kbd>WASD</kbd>
+        </div>
+        <div class="control-item">
+          <strong>Interact:</strong><br>
+          <kbd>Z</kbd> or <kbd>Enter</kbd>
+        </div>
+        <div class="control-item">
+          <strong>Jump (Premium):</strong><br>
+          <kbd>Space</kbd> or <kbd>X</kbd>
+        </div>
+        <div class="control-item">
+          <strong>Pause:</strong><br>
+          <kbd>P</kbd>
+        </div>
+        <div class="control-item">
+          <strong>Reset Position:</strong><br>
+          <kbd>R</kbd>
+        </div>
+      </div>
+    </div>
+    
+    <div class="footer">
+      <p>✨ Built with vanilla JavaScript and HTML5 Canvas</p>
+      <p>🎨 Features procedural pixel art generation</p>
+      <p>💾 Auto-saves progress to browser storage</p>
+      <p>📱 Fully responsive and mobile-friendly</p>
+    </div>
+  </div>
+  
+  <script>
+    // Create GBA game page dynamically
+    function loadGBAGame() {
+      const html = `<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Game Boy Advance SP - Authentic Experience</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -19,13 +303,27 @@
     </header>
     
     <div class="gba-screen-container">
-      <canvas id="game" width="240" height="160" aria-label="GBA SP Screen" role="img"></canvas>
+      <canvas id="game" width="720" height="480" aria-label="GBA SP Screen" role="img"></canvas>
     </div>
 
     <footer class="ui gba-style">
       <small>Authentic Game Boy Advance SP Experience • Native 240×160 Resolution</small>
     </footer>
   </main>
-  <script src="gba-authentic.js"></script>
+  <script src="gba-authentic.js"><\/script>
+</body>
+</html>`;
+      
+      const newWindow = window.open('', '_blank');
+      newWindow.document.write(html);
+      newWindow.document.close();
+    }
+    
+    // Create Emerald game page dynamically
+    function loadEmeraldGame() {
+      // For now, redirect to the package creation script output
+      alert('Emerald version is packaged as gba_rpg_emerald.zip\nExtract and open index.html to play!');
+    }
+  </script>
 </body>
 </html>
