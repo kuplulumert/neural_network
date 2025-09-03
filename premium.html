@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Premium 2D RPG Experience</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    /* Animated background */
+    body::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+      background-size: 50px 50px;
+      animation: drift 20s linear infinite;
+      pointer-events: none;
+    }
+    
+    @keyframes drift {
+      from { transform: translate(0, 0); }
+      to { transform: translate(50px, 50px); }
+    }
+    
+    .game-container {
+      position: relative;
+      background: rgba(0, 0, 0, 0.3);
+      padding: 20px;
+      border-radius: 20px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+      animation: float 6s ease-in-out infinite;
+    }
+    
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+    
+    .game-header {
+      text-align: center;
+      margin-bottom: 20px;
+      animation: fadeIn 1s ease;
+    }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    h1 {
+      font-size: 2.5em;
+      font-weight: 700;
+      margin-bottom: 10px;
+      text-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+      background: linear-gradient(135deg, #FFD700, #FFA500);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .subtitle {
+      font-size: 1.1em;
+      color: rgba(255, 255, 255, 0.9);
+      margin-bottom: 20px;
+    }
+    
+    .controls {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 15px;
+    }
+    
+    .control-group {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 8px 16px;
+      border-radius: 10px;
+      backdrop-filter: blur(5px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      transition: all 0.3s ease;
+    }
+    
+    .control-group:hover {
+      background: rgba(255, 255, 255, 0.15);
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+    
+    kbd {
+      display: inline-block;
+      padding: 4px 8px;
+      margin: 0 3px;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      border-radius: 5px;
+      font-family: 'Courier New', monospace;
+      font-size: 0.9em;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+    
+    #game {
+      display: block;
+      border-radius: 10px;
+      box-shadow: 
+        0 0 0 2px rgba(255, 255, 255, 0.2),
+        0 0 0 4px rgba(0, 0, 0, 0.1),
+        0 10px 40px rgba(0, 0, 0, 0.4);
+      image-rendering: pixelated;
+      image-rendering: crisp-edges;
+      transition: transform 0.3s ease;
+    }
+    
+    #game:hover {
+      transform: scale(1.02);
+    }
+    
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 15px;
+      margin-top: 20px;
+      max-width: 960px;
+    }
+    
+    .feature {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 12px;
+      border-radius: 10px;
+      text-align: center;
+      backdrop-filter: blur(5px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      transition: all 0.3s ease;
+    }
+    
+    .feature:hover {
+      background: rgba(255, 255, 255, 0.15);
+      transform: translateY(-3px);
+    }
+    
+    .feature-icon {
+      font-size: 1.5em;
+      margin-bottom: 5px;
+    }
+    
+    .feature-text {
+      font-size: 0.9em;
+      color: rgba(255, 255, 255, 0.9);
+    }
+    
+    /* Loading animation */
+    .loading {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      animation: fadeOut 1s ease 1s forwards;
+    }
+    
+    @keyframes fadeOut {
+      to { opacity: 0; pointer-events: none; }
+    }
+    
+    .loading-text {
+      font-size: 2em;
+      animation: pulse 1s ease infinite;
+    }
+    
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+      h1 { font-size: 2em; }
+      .game-container { padding: 15px; }
+      .controls { gap: 10px; }
+      .control-group { padding: 6px 12px; font-size: 0.9em; }
+    }
+  </style>
+</head>
+<body>
+  <div class="loading">
+    <div class="loading-text">✨ Loading Premium Experience...</div>
+  </div>
+  
+  <div class="game-container">
+    <div class="game-header">
+      <h1>⚔️ Premium 2D RPG ⚔️</h1>
+      <div class="subtitle">An immersive adventure with dynamic lighting & particle effects</div>
+      
+      <div class="controls">
+        <div class="control-group">
+          🎮 Move: <kbd>WASD</kbd> or <kbd>Arrows</kbd>
+        </div>
+        <div class="control-group">
+          ⚡ Jump: <kbd>Space</kbd> or <kbd>X</kbd>
+        </div>
+        <div class="control-group">
+          💬 Interact: <kbd>Z</kbd> or <kbd>Enter</kbd>
+        </div>
+      </div>
+    </div>
+    
+    <canvas id="game" width="960" height="640"></canvas>
+    
+    <div class="features">
+      <div class="feature">
+        <div class="feature-icon">🌅</div>
+        <div class="feature-text">Day/Night Cycle</div>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">💡</div>
+        <div class="feature-text">Dynamic Lighting</div>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">🍃</div>
+        <div class="feature-text">Particle Effects</div>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">🗺️</div>
+        <div class="feature-text">Procedural World</div>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">⚔️</div>
+        <div class="feature-text">Smooth Combat</div>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">💎</div>
+        <div class="feature-text">Premium Graphics</div>
+      </div>
+    </div>
+  </div>
+  
+  <script src="premium_rpg.js"></script>
+</body>
+</html>
