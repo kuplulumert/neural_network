@@ -3,23 +3,29 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Tiny GBA-style RPG</title>
+  <title>Game Boy Advance SP - Pokémon Style RPG</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <main class="wrap">
-    <header class="ui">
-      <h1>Tiny GBA-style RPG</h1>
-      <p>Move: <kbd>Arrows</kbd>/<kbd>WASD</kbd> • Interact: <kbd>Z</kbd>/<kbd>Enter</kbd> • Pause: <kbd>P</kbd> • Reset: <kbd>R</kbd></p>
-      <p class="hint">Swap your own pixel art into <code>assets/</code> any time.</p>
+    <header class="ui gba-style">
+      <h1>🎮 Game Boy Advance SP</h1>
+      <div class="controls">
+        <span class="button-group">D-Pad: <kbd>↑</kbd><kbd>↓</kbd><kbd>←</kbd><kbd>→</kbd> or <kbd>WASD</kbd></span>
+        <span class="button-group">A: <kbd>Z</kbd> • B: <kbd>X</kbd></span>
+        <span class="button-group">START: <kbd>Enter</kbd> • SELECT: <kbd>Shift</kbd></span>
+      </div>
+      <p class="hint">Authentic GBA SP experience at 240×160 resolution</p>
     </header>
+    
+    <div class="gba-screen-container">
+      <canvas id="game" width="240" height="160" aria-label="GBA SP Screen" role="img"></canvas>
+    </div>
 
-    <canvas id="game" width="320" height="240" aria-label="Game canvas" role="img"></canvas>
-
-    <footer class="ui">
-      <small>Vanilla JS + Canvas. Ready for GitHub Pages.</small>
+    <footer class="ui gba-style">
+      <small>Authentic Game Boy Advance SP Experience • Native 240×160 Resolution</small>
     </footer>
   </main>
-  <script src="game.js"></script>
+  <script src="gbasp.js"></script>
 </body>
 </html>
